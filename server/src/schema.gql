@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateProductInput {
+  """Product Name"""
+  name: String!
+}
+
+type Mutation {
+  createOrder(productId: String!, quantity: Float!): Order!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+}
+
+type Order {
+  _id: String!
+
+  """Product associated with the order"""
+  product: Product!
+
+  """Quantity of the ordered product"""
+  quantity: Int!
+
+  """Status of the order"""
+  status: String!
+}
+
+type Product {
+  _id: String!
+
+  """Product  Name"""
+  name: String!
+}
+
+type Query {
+  order(id: String!): Order!
+  orders: [Order!]!
+  product(_id: String!): Product!
+  products: [Product!]!
+}
+
+input UpdateProductInput {
+  _id: String!
+
+  """Product Name"""
+  name: String
+}
